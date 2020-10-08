@@ -12,6 +12,7 @@
 // console.log('-1 == false', -1 == false);
 // console.log('!10 === false', !10 === false);
 
+
 /**
  * 問題２：
  * 関数fnの引数numが渡ってこない場合（undefinedまたはnullの場合）のみ、
@@ -20,10 +21,12 @@
  * 以下の関数fnの初期化を適切に書き直してください。
  * ※aには0以上の整数値が渡ってくるものとします。
  */
-let a = 1;
+let a = 0;
 
-function fn(num) {
-    num = num || -1;
+function fn(num = -1) {
+    if(num === undefined || num === null) {
+        num = -1;
+    }
     console.log(num);
 }
 fn(a);
@@ -39,3 +42,10 @@ fn(a);
  * greeting("Bob"); -> 出力結果："hello, Bob"
  *
  */
+// function greeting(name, hi) {
+//     hi = hi || 'hello';
+//     console.log(`${hi}, ${name}`);
+// }
+
+// greeting("Bob", "");
+// greeting("Bob");
